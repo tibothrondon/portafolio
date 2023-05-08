@@ -2,4 +2,4 @@
 
 Portafolio de @tibothrondon
 
-- [Porotafolio-CV](https://tibothrondon.github.io/portafolio)
+- [Porotafolio-CV](https://tibothrondon.github.io/portafolio/index.html)
