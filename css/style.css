@@ -1,0 +1,768 @@
+:root {
+    --font-size: 18px;
+    --font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --container-width:1200px;
+    --text-color: #222;
+    --background-color: #0F2027;  /* fallback for old browsers */
+    --background-color1: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    --background-color2: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --header-height: 4rem;
+    --white-color: #fff;
+    --max-width: 1200px;
+    --black-alpha-color: rgba(0, 0, 0, 0.5);
+    --gray-color: #ccc;
+    --gray-dark-color: #203A43;
+    --title-color: #2C5364;
+    --gray-light-color: #f3f3f3;
+    --first-alpha-color: rgba(0, 163, 217, 0.528);
+}
+
+html {
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--white-color);
+    transition: all .5s ease-out;
+}
+
+a:hover {
+    opacity: .5;
+}
+
+h1{
+    margin: 0;
+    font-size: 2rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+h5 {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width) ;
+}
+
+.menu  a.active {
+    opacity: .5;
+}
+
+.hidden {
+    display: none;
+    transition: all .5s ease-in-out;
+}
+
+/******** HEADER ******/
+.header {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 1rem;
+    width: 100%;
+    height: var(--header-height);
+    background: var(--background-color);
+    background: var(--background-color1);
+    background: var(--background-color2);
+}
+
+.header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/******** MENU ******/
+.menu {
+    position: fixed;
+    left: 0;
+    bottom: var(--header-height);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5 ease;
+}
+
+.menu-btn {
+    font-size: .5rem !important;
+    padding: 0 !important;
+    width: 4rem;
+    height: 2rem;
+    z-index: 999 !important;
+    bottom: 1vh !important;
+    right: 1vw !important;
+    outline: thin solid var(--white-color);
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+    background-color: var(--white-color) !important;
+}
+
+.menu.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #0F2027;
+}
+
+.menu a {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+/******** INICIO ******/
+.hero-image {
+    /*background-image: url("../assets/hero-image-home.jpg");*/
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.hero-image-opacity {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--black-alpha-color);
+}
+
+.hero-image-title {
+    position: absolute;
+    font-size: 7.5vw;
+    color: var(--white-color);
+}
+
+.v-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; 
+    overflow: hidden;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay a {
+    transition: all .1s ease-out;
+}
+
+.home-title {
+    color: var(--white-color);
+    font-size: 7.5vw;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.btn {
+    background: #2C5364;
+    display: inline-block;
+    border-radius: .5rem;
+    width: 200px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+/******** ACERCA ******/
+.section {
+    padding: 2rem 1rem;
+}
+
+.gray-scale {
+    filter: grayscale(1);
+}
+
+.about > article {
+    margin-bottom: 2rem;
+}
+
+/******** progressbar ******/
+progress {
+    width: 100%;
+    height: 1rem;
+    background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--gray-dark-color);
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--gray-dark-color);
+}
+
+.progress {
+    margin: 1rem auto;
+}
+
+.progress > p {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: .85rem;
+}
+
+/******** SERVICES ******/
+.section-title {
+    border-top: thin solid var(--gray-dark-color);
+    border-bottom: thin solid var(--gray-dark-color);
+    margin: 2rem auto;
+    padding: .5rem 1rem;
+    width: 250px;
+    text-align: center;
+    color: var(--title-color) ;
+}
+
+.bg-gray-light{
+    background-color: var(--gray-light-color);
+}
+
+.service-card {
+    margin: 1rem auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.service-card h3{
+    color:var(--title-color);
+}
+
+.service-card i {
+    margin-bottom: 1.25rem;
+}
+
+/******** PORTAFOLIO ******/
+.portafolio-card {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.portafolio-card img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+.portafolio-card-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--black-alpha-color);
+    color: var(--white-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease-in-out;
+}
+
+.portafolio-card:hover .portafolio-card-info {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.portafolio-card-info > div {
+    padding: 1rem;
+    border: thin solid var(--text-color);
+    width: 100%;
+    height: 100%;
+}
+
+/******** MODAL ******/
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-alpha-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+}
+
+.modal[id|="proyecto"]:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.portfolio-modal {
+    padding: 1rem;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white-color);
+}
+
+.portfolio-modal h3 {
+    border-bottom: medium solid var(--title-color);
+    padding: .5rem 0;
+    margin: 1rem auto;
+    color: var(--title-color);
+}
+
+.portfolio-details {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-auto-rows: 2rem;
+}
+
+.portfolio-details b {
+    color: var(--title-color);
+}
+
+.portfolio-details a {
+    color: blue;
+}
+
+.social-media a {
+    padding: 0 .4rem;
+    text-decoration: none;
+}
+
+/******** CONTACT ******/
+.contact-card {
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 100%;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-card > small {
+    margin-top: -1rem;
+}
+
+.contact-card a {
+    color: var(--title-color);
+    text-decoration: none;
+}
+
+.box-shadow-1 {
+    box-shadow: .25rem .25rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+/******** CONTACT FORM ******/
+.contact-form {
+    position: relative;
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 800px;
+}
+
+.contact-form > * {
+    padding: .5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+}
+
+.contact-form > label {
+    width: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: .85rem;
+    font-family: var(--font-family);
+}
+
+.contact-form input {
+    border: 0;
+    border-bottom: thin solid var(--gray-dark-color);
+    padding-left: 0;
+}
+
+.name-label {
+    position: absolute;
+    top: 1.05rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    transition: .4s all;
+    padding-inline: .6rem;
+    pointer-events: none;
+}
+
+.email-label {
+    position: absolute;
+    top: 4.35rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    transition: .4s all;
+    padding-inline: .6rem;
+    pointer-events: none;
+}
+
+.name-input:focus~.name-label,
+.name-input:valid~.name-label{
+    top: -.1rem;
+    left: .9rem;
+    font-size: .85rem;
+}
+
+.email-input:focus~.email-label,
+.email-input:valid~.email-label{
+    top: 3rem;
+    left: .9rem;
+    font-size: .85rem;
+}
+
+input:focus,
+input:valid {
+    padding-left: .5rem;
+}
+
+.contact-form textarea {
+    border: thin solid var(--gray-dark-color);
+    resize: none;
+}
+
+.contact-form input[type="submit"] {
+    margin-top: 0;
+    cursor: pointer;
+    transition: all .5s ease-out;
+}
+
+.contact-form input[type="submit"]:hover {
+    opacity: .75;
+}
+
+.none {
+    display: none;
+}
+
+/******** MODAL - GRACIAS ******/
+.modal#gracias:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-form-response {
+    padding: 1rem;
+    width: 400px;
+    text-align: center;
+    background-color: var(--white-color);
+}
+
+.contact-form-response  i {
+    margin-top: 2rem;
+}
+
+/******** FOOTER ******/
+.footer {
+    background: var(--background-color);
+    background: var(--background-color1);
+    background: var(--background-color2);
+    padding: .5rem;
+    text-align: center;
+    color: var(--white-color);
+    margin-bottom: var(--header-height);
+}
+
+.footer a:hover {
+    color: var(--white-color);
+}
+
+/******** MEDIA SCREEN ******/
+@media screen and (min-width: 1024px){
+    /******** HEADER ******/
+    .header {
+        position: sticky;
+        top: 0;
+        padding: .5rem;
+        height: calc(var(--header-height) - .5rem);
+    }
+
+    .menu {
+        position: static;
+        width: auto;
+        flex-direction: row;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    .menu a {
+        padding: 0 1rem;
+    }
+
+    .menu a:last-child{
+        padding-right: 0;
+    }
+
+    .menu a:hover {
+        background-color: transparent;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    /******** ACERCA ******/
+    .about {
+        display: grid;
+        grid-template-columns: repeat(3,30%);
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .full-lg-screen {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .text-lg-right {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-lg-left {
+        text-align: left;
+    }
+
+    /******** SERVICES ******/
+    .services > .container {
+        grid-template-columns: repeat(3, 30%);
+    }
+
+    .services .section-title {
+        grid-column: span 3;
+    }
+
+    /******** PORTAFOLIO ******/
+    .portafolio > .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .portafolio .section-title {
+        grid-column: span 3;
+    }
+
+    /******** MODAL ******/
+    .portfolio-modal img {
+        max-width: 50%;
+        height: auto;
+    }
+
+    /******** CONTACT ******/
+    .contact-cards {
+        grid-template-columns: repeat(4, 24%);
+    }
+
+    /******** CONTACT FORM ******/
+    .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1rem;
+    }
+
+    .contact-form textarea,
+    .contact-form-loader {
+        grid-column: span 2;
+    }
+
+    .contact-form input[type="submit"] {
+        margin-left: 0;
+    }
+
+    .name-label {
+        position: absolute;
+        top: .7rem;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.5rem;
+        transition: .4s all;
+        margin-inline-start: 1.5rem;
+        pointer-events: none;
+    }
+    
+    .email-label {
+        position: absolute;
+        top: .7rem;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.5rem;
+        transition: .4s all;
+        margin-inline-start: 23.5rem;
+        pointer-events: none;
+    }
+
+    .name-input:focus~.name-label,
+    .name-input:valid~.name-label{
+        top: -.5rem;
+        left: -0.6rem;
+        background-color: transparent;
+        font-size: 1rem;
+    }
+
+    .email-input:focus~.email-label,
+    .email-input:valid~.email-label{
+        top: -.5rem;
+        left: -0.9rem;
+        background-color: transparent;
+        font-size: 1rem;
+    }
+
+    /******** FOOTER ******/
+    .footer {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .menu a:hover {
+        background: var(--background-color);
+        background: var(--background-color2);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    /******** SERVICES ******/
+    .services > .container {
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .services .section-title {
+        grid-column:  span 2;
+    }
+
+    /******** PORTAFOLIO ******/
+    .portafolio > .container{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+    }
+
+    .portafolio .section-title {
+        grid-column: span 2;
+    }
+
+    /******** MODAL ******/
+    .portfolio-modal {
+        max-width: 800px;
+        flex-direction: row;
+    }
+
+    .portfolio-info {
+        margin-left: 1rem;
+        align-self: center;
+    }
+
+    /******** CONTACT ******/
+    .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 48%);
+        justify-content: space-between;
+    }
+}
+
